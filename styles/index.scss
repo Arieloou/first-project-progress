@@ -133,7 +133,7 @@ h1, h2, h3 {
     &__title {
         color: $--clr-neutral-white;
         font-size: 3.5rem;
-        font-weight: 1800;
+        font-weight: bold;
         text-transform: uppercase;
         letter-spacing: 10px;
     }
@@ -144,15 +144,26 @@ h1, h2, h3 {
     grid-template-columns: repeat(2, 1fr);
 }
 
+%general-card-aspect-ratio {
+    aspect-ratio: math.div(720px, 600px);
+}
+
 .card {
     min-height: 300px;
 
     &--text {
+        @extend %general-card-aspect-ratio;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        align-items: center;
         padding: 10rem 10.5rem;
         text-align: left;
     }
     
     &--image {
+        @extend %general-card-aspect-ratio;
         img {
             width: 100%;
             height: 100%;
@@ -161,8 +172,10 @@ h1, h2, h3 {
     }
 
     &--image-text {
-        position: relative; 
+        @extend %general-card-aspect-ratio;
         text-align: center;
+        position: relative;
+        bottom: 0;
     }
 
     &__title {
@@ -226,11 +239,6 @@ h1, h2, h3 {
         height: 100%;
         object-fit: cover;
         z-index: -1;
-    }
-    
-    &--image-text {
-        aspect-ratio: math.div(720px, 600px);
-        bottom: 0;
     }
 
     &__content {
@@ -345,6 +353,11 @@ h1, h2, h3 {
 }
 
 @media (max-width: 780px) {
+
+    body {
+        font-size: 30px;
+    }
+
     .header {
         background-image: url('/images/orange.png');
         height: 85vh;
@@ -358,6 +371,7 @@ h1, h2, h3 {
 
         &__menu {
             display: none;
+            position:absolute;
             flex-direction: column;
             top: 6rem;
             left: 1.5rem;
@@ -423,12 +437,12 @@ h1, h2, h3 {
 
     .card {
         &--text {
+            @extend %general-card-aspect-ratio;
             text-align: center;
-            padding: 4rem 1.5rem;
         }
-        
+
         &__title {
-            font-size: 2rem;
+            font-size: 50px;
         }
     }
 
