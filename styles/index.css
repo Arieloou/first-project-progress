@@ -1,0 +1,372 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Barlow", sans-serif;
+  font-size: 1.125rem;
+  color: hsl(232, 10%, 55%);
+  background-color: hsl(0, 0%, 100%);
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3 {
+  font-family: "Fraunces", serif;
+  font-weight: 900;
+  color: hsl(212, 27%, 19%);
+}
+
+.header {
+  background-image: url("/images/orange.png");
+  background-size: cover;
+  background-position: center bottom;
+  height: 100vh;
+  padding: 2.5rem;
+  position: relative;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav__logo-white {
+  font-family: "Fraunces", serif;
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: hsl(0, 0%, 100%);
+  text-decoration: none;
+  z-index: 1001;
+}
+.nav__toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+.nav__menu--visible {
+  display: none;
+}
+.nav__menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  padding: 0;
+  list-style: none;
+}
+.nav__menu::after {
+  display: none;
+}
+.nav__item {
+  margin: 0 0 0 2.5rem;
+}
+.nav__link {
+  text-decoration: none;
+  color: hsl(0, 0%, 100%);
+  font-family: "Barlow", sans-serif;
+  font-size: 1rem;
+}
+.nav__item--cta .nav__link {
+  font-family: "Fraunces", serif;
+  text-transform: uppercase;
+  font-size: 1rem;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(212, 27%, 19%);
+  border-radius: 30px;
+  padding: 1rem 1.75rem;
+}
+.nav__item--cta .nav__link:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: hsl(0, 0%, 100%);
+}
+
+.front-page {
+  text-align: center;
+  padding-top: 3.5rem;
+}
+.front-page__title {
+  color: hsl(0, 0%, 100%);
+  font-size: 3.5rem;
+  font-weight: 1800;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+  min-height: 300px;
+}
+.card--text {
+  padding: 10rem 10.5rem;
+  text-align: left;
+}
+.card--image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card--image-text {
+  position: relative;
+  text-align: center;
+}
+.card__title {
+  font-family: "Fraunces", serif;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.card__title--cyan {
+  color: hsl(166, 40%, 24%);
+}
+.card__title--blue {
+  color: hsl(198, 62%, 26%);
+}
+.card__paragraph {
+  margin-bottom: 2rem;
+}
+.card__paragraph--cyan {
+  color: hsl(166, 40%, 24%);
+}
+.card__paragraph--blue {
+  color: hsl(198, 62%, 26%);
+}
+.card__link {
+  font-family: "Fraunces", serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: hsl(212, 27%, 19%);
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
+.card__link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: -7px;
+  width: 110%;
+  height: 9px;
+  border-radius: 4px;
+  opacity: 0.25;
+  z-index: -1;
+  transition: opacity 0.2s ease-in-out;
+}
+.card__link:hover::after {
+  opacity: 1;
+}
+.card__link--yellow::after {
+  background-color: hsl(51, 100%, 49%);
+}
+.card__link--red::after {
+  background-color: hsl(7, 99%, 70%);
+}
+.card__image-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+.card--image-text {
+  aspect-ratio: 1.2;
+  bottom: 0;
+}
+.card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  padding: 2.5rem 1rem;
+}
+
+.testimonials {
+  padding: 10rem 5rem;
+  text-align: center;
+}
+.testimonials__title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: hsl(210, 4%, 67%);
+  margin-bottom: 4rem;
+}
+.testimonials__container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.profile__avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+}
+.profile__text {
+  color: hsl(213, 9%, 39%);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.profile__author {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.profile__role {
+  font-size: 0.9rem;
+  color: hsl(210, 4%, 67%);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.footer {
+  background-color: hsl(168, 44%, 70%);
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+.footer .nav__logo-green {
+  font-family: "Fraunces", serif;
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: hsl(166, 40%, 24%);
+  text-decoration: none;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 3.5rem;
+}
+.footer-nav__link {
+  text-decoration: none;
+  color: hsl(166, 40%, 24%);
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+.footer-nav__link:hover {
+  color: hsl(0, 0%, 100%);
+}
+
+.footer-social {
+  display: flex;
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+.footer-social__link svg {
+  transition: filter 0.2s ease-in-out;
+}
+.footer-social__link:hover svg {
+  filter: brightness(0) invert(1);
+}
+
+@media (max-width: 780px) {
+  .header {
+    background-image: url("/images/orange.png");
+    height: 85vh;
+    padding: 1.5rem;
+  }
+  .nav__toggle {
+    display: block;
+  }
+  .nav__menu {
+    display: none;
+    flex-direction: column;
+    top: 6rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    background-color: hsl(0, 0%, 100%);
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .nav__menu::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -24px;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 24px solid hsl(0, 0%, 100%);
+    border-left: 24px solid transparent;
+  }
+  .nav__menu--visible {
+    display: flex;
+  }
+  .nav__item {
+    margin: 1.5rem 0;
+  }
+  .nav__link {
+    color: hsl(232, 10%, 55%);
+    font-size: 1.25rem;
+  }
+  .nav__item--cta .nav__link {
+    background-color: hsl(51, 100%, 49%);
+    color: hsl(212, 27%, 19%);
+  }
+  .nav__item--cta .nav__link:hover {
+    background-color: hsl(51, 100%, 49%);
+    color: hsl(212, 27%, 19%);
+  }
+  .front-page {
+    padding-top: 3rem;
+  }
+  .front-page__title {
+    font-size: 2.5rem;
+  }
+  .front-page__image {
+    margin: 3rem auto 0;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .card--text {
+    text-align: center;
+    padding: 4rem 1.5rem;
+  }
+  .card__title {
+    font-size: 2rem;
+  }
+  .testimonials {
+    padding: 4rem 1.5rem;
+  }
+  .testimonials__container {
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}/*# sourceMappingURL=index.css.map */
