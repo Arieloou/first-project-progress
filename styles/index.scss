@@ -1,22 +1,21 @@
 @use "sass:math";
 
+$clr-primary-red: hsl(7, 99%, 70%);
+$clr-primary-yellow: hsl(51, 100%, 49%);
+$clr-primary-cyan: hsl(166, 40%, 24%);
+$clr-primary-blue: hsl(198, 62%, 26%);
+$clr-primary-green: hsl(167, 34%, 41%);
 
-$--clr-primary-red: hsl(7, 99%, 70%);
-$--clr-primary-yellow: hsl(51, 100%, 49%);
-$--clr-primary-cyan: hsl(166, 40%, 24%);
-$--clr-primary-blue: hsl(198, 62%, 26%);
-$--clr-primary-green: hsl(167, 34%, 41%);
+$clr-secondary-green: hsl(168, 44%, 70%);
 
-$--clr-secondary-green: hsl(168, 44%, 70%);
+$clr-neutral-blue-dark: hsl(212, 27%, 19%);
+$clr-neutral-blue-gray: hsl(213, 9%, 39%);
+$clr-neutral-gray: hsl(232, 10%, 55%);
+$clr-neutral-gray-light: hsl(210, 4%, 67%);
+$clr-neutral-white: hsl(0, 0%, 100%);
 
-$--clr-neutral-blue-dark: hsl(212, 27%, 19%);
-$--clr-neutral-blue-gray: hsl(213, 9%, 39%);
-$--clr-neutral-gray: hsl(232, 10%, 55%);
-$--clr-neutral-gray-light: hsl(210, 4%, 67%);
-$--clr-neutral-white: hsl(0, 0%, 100%);
-
-$--font-barlow: 'Barlow', sans-serif;
-$--font-fraunces: 'Fraunces', serif;
+$font-barlow: 'Barlow', sans-serif;
+$font-fraunces: 'Fraunces', serif;
 
 // Basic Reset
 *,
@@ -32,43 +31,40 @@ html {
 }
 
 body {
-    font-family: $--font-barlow;
+    font-family: $font-barlow;
     font-size: 1.125rem;
-    color: $--clr-neutral-gray;
-    background-color: $--clr-neutral-white;
+    color: $clr-neutral-gray;
+    background-color: $clr-neutral-white;
 }
 
 img {
     max-width: 100%;
 }
 
-h1, h2, h3 {
-    font-family: $--font-fraunces;
+h1,
+h2,
+h3 {
+    font-family: $font-fraunces;
     font-weight: 900;
-    color: $--clr-neutral-blue-dark;
+    color: $clr-neutral-blue-dark;
 }
 
 .header {
     background-image: url('/images/orange.png');
     background-size: cover;
+    position: relative;
     background-position: center bottom;
     height: 100vh;
-    padding: 2.5rem;
-    position: relative;
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 2.5rem 1.5rem;
 
     &__logo-white {
-        font-family: $--font-fraunces;
-        font-size: 1.75rem;
-        font-weight: 900;
-        color: $--clr-neutral-white;
-        text-decoration: none;
-        z-index: 1001; 
+        z-index: 1001;
     }
 
     &__toggle {
@@ -77,10 +73,7 @@ h1, h2, h3 {
         border: none;
         cursor: pointer;
         z-index: 1001;
-    }
-
-    &__menu--visible {
-        display: none;
+        position: relative;
     }
 
     &__menu {
@@ -96,31 +89,35 @@ h1, h2, h3 {
         }
     }
 
+    &__menu--visible {
+        display: none;
+    }
+
     &__item {
         margin: 0 0 0 2.5rem;
     }
 
     &__link {
         text-decoration: none;
-        color: $--clr-neutral-white; 
-        font-family: $--font-barlow;
+        color: $clr-neutral-white;
+        font-family: $font-barlow;
         font-size: 1rem;
     }
 
     // --cta (Call to Action)
     &__item--cta {
         .nav__link {
-            font-family: $--font-fraunces;
+            font-family: $font-fraunces;
             text-transform: uppercase;
             font-size: 1rem;
-            background-color: $--clr-neutral-white;
-            color: $--clr-neutral-blue-dark;
+            background-color: $clr-neutral-white;
+            color: $clr-neutral-blue-dark;
             border-radius: 30px;
             padding: 1rem 1.75rem;
 
             &:hover {
                 background-color: rgba(255, 255, 255, 0.3);
-                color: $--clr-neutral-white;
+                color: $clr-neutral-white;
             }
         }
     }
@@ -131,7 +128,7 @@ h1, h2, h3 {
     padding-top: 3.5rem;
 
     &__title {
-        color: $--clr-neutral-white;
+        color: $clr-neutral-white;
         font-size: 3.5rem;
         font-weight: bold;
         text-transform: uppercase;
@@ -145,25 +142,26 @@ h1, h2, h3 {
 }
 
 %general-card-aspect-ratio {
-    aspect-ratio: math.div(720px, 600px);
+    aspect-ratio: math.div(720, 600);
+    height: 100%;
+    width: 100%;
 }
 
 .card {
-    min-height: 300px;
-
+    position: relative;
+    
     &--text {
-        @extend %general-card-aspect-ratio;
+        @extend %general-card-aspect-ratio; 
         display: flex;
         flex-direction: column;
-        width: 100%;
-        height: 100%;
-        align-items: center;
-        padding: 10rem 10.5rem;
+        justify-content: center;
+        padding: 4.5rem 2.5rem 4.5rem 4.5rem;
         text-align: left;
     }
     
     &--image {
         @extend %general-card-aspect-ratio;
+
         img {
             width: 100%;
             height: 100%;
@@ -171,48 +169,57 @@ h1, h2, h3 {
         }
     }
 
-    &--image-text {
+    &--image-text { 
         @extend %general-card-aspect-ratio;
         text-align: center;
-        position: relative;
-        bottom: 0;
     }
-
+    
     &__title {
-        font-family: $--font-fraunces;
+        font-family: $font-fraunces;
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
-        
-        &--cyan { color: $--clr-primary-cyan; }
-        &--blue { color: $--clr-primary-blue; }
+
+        &--cyan {
+            color: $clr-primary-cyan;
+        }
+
+        &--blue {
+            color: $clr-primary-blue;
+        }
     }
-    
-    
+
     &__paragraph {
         margin-bottom: 2rem;
-        
-        &--cyan { color: $--clr-primary-cyan; }
-        &--blue { color: $--clr-primary-blue; }
+
+        &--cyan {
+            color: $clr-primary-cyan;
+        }
+
+        &--blue {
+            color: $clr-primary-blue;
+        }
     }
 
-
     &__link {
-        font-family: $--font-fraunces;
-        font-weight: bold;
+        font-family: $font-fraunces;
+        font-weight: 900;
         text-transform: uppercase;
         text-decoration: none;
-        color: $--clr-neutral-blue-dark;
+        color: var(--clr-neutral-blue-dark);
         font-size: 1rem;
         position: relative;
         z-index: 1;
+        display: inline-block;
+
+        align-self: flex-start;
 
         &::after {
             content: '';
             position: absolute;
-            bottom: -3px;
-            left: -7px;
-            width: 110%;
-            height: 9px;
+            bottom: -1%;
+            width: 100%;
+            left: 0;
+            height: 8px;
             border-radius: 4px;
             opacity: 0.25;
             z-index: -1;
@@ -224,10 +231,10 @@ h1, h2, h3 {
         }
         
         &--yellow::after {
-            background-color: $--clr-primary-yellow;
+            background-color: $clr-primary-yellow;
         }
         &--red::after {
-            background-color: $--clr-primary-red;
+            background-color: $clr-primary-red;
         }
     }
 
@@ -244,14 +251,15 @@ h1, h2, h3 {
     &__content {
         display: flex;
         flex-direction: column;
-        justify-content: end;
+        justify-content: flex-end;
         width: 100%;
         height: 100%;
         align-items: center;
         padding: 2.5rem 1rem;
+        position: relative;
+        z-index: 1;
     }
 }
-
 
 .testimonials {
     padding: 10rem 5rem;
@@ -261,7 +269,7 @@ h1, h2, h3 {
         font-size: 1rem;
         text-transform: uppercase;
         letter-spacing: 4px;
-        color: $--clr-neutral-gray-light;
+        color: $clr-neutral-gray-light;
         margin-bottom: 4rem;
     }
 
@@ -284,18 +292,21 @@ h1, h2, h3 {
         border-radius: 50%;
         margin-bottom: 2rem;
     }
+
     &__text {
-        color: $--clr-neutral-blue-gray;
+        color: $clr-neutral-blue-gray;
         line-height: 1.8;
         margin-bottom: 2rem;
     }
+
     &__author {
         font-size: 1.2rem;
         margin-bottom: 0.5rem;
     }
+
     &__role {
         font-size: 0.9rem;
-        color: $--clr-neutral-gray-light;
+        color: $clr-neutral-gray-light;
     }
 }
 
@@ -305,7 +316,7 @@ h1, h2, h3 {
 }
 
 .footer {
-    background-color: $--clr-secondary-green;
+    background-color: $clr-secondary-green;
     padding: 4rem 2rem;
     display: flex;
     flex-direction: column;
@@ -313,10 +324,10 @@ h1, h2, h3 {
     gap: 2.5rem;
 
     .nav__logo-green {
-        font-family: $--font-fraunces;
+        font-family: $font-fraunces;
         font-size: 1.75rem;
         font-weight: 900;
-        color: $--clr-primary-cyan;
+        color: $clr-primary-cyan;
         text-decoration: none;
     }
 }
@@ -327,12 +338,12 @@ h1, h2, h3 {
 
     &__link {
         text-decoration: none;
-        color: $--clr-primary-cyan;
+        color: $clr-primary-cyan;
         opacity: 0.8;
         transition: opacity 0.2s ease-in-out;
 
         &:hover {
-            color: $--clr-neutral-white;
+            color: $clr-neutral-white;
         }
     }
 }
@@ -346,6 +357,7 @@ h1, h2, h3 {
         svg {
             transition: filter 0.2s ease-in-out;
         }
+
         &:hover svg {
             filter: brightness(0) invert(1);
         }
@@ -371,12 +383,12 @@ h1, h2, h3 {
 
         &__menu {
             display: none;
-            position:absolute;
+            position: absolute;
             flex-direction: column;
             top: 6rem;
             left: 1.5rem;
             right: 1.5rem;
-            background-color: $--clr-neutral-white;
+            background-color: $clr-neutral-white;
             padding: 2.5rem;
             text-align: center;
             
@@ -386,9 +398,9 @@ h1, h2, h3 {
                 position: absolute;
                 top: -24px;
                 right: 0;
-                width: 0; 
+                width: 0;
                 height: 0;
-                border-bottom: 24px solid $--clr-neutral-white;
+                border-bottom: 24px solid $clr-neutral-white;
                 border-left: 24px solid transparent;
             }
         }
@@ -400,20 +412,20 @@ h1, h2, h3 {
         &__item {
             margin: 1.5rem 0;
         }
-
+        
         &__link {
-            color: $--clr-neutral-gray;
+            color: $clr-neutral-gray;
             font-size: 1.25rem;
         }
-
+        
         &__item--cta {
             .nav__link {
-                background-color: $--clr-primary-yellow;
-                color: $--clr-neutral-blue-dark;
-                
+                background-color: $clr-primary-yellow;
+                color: $clr-neutral-blue-dark;
+
                 &:hover {
-                    background-color: $--clr-primary-yellow;
-                    color: $--clr-neutral-blue-dark;
+                    background-color: $clr-primary-yellow;
+                    color: $clr-neutral-blue-dark;
                 }
             }
         }
@@ -421,11 +433,11 @@ h1, h2, h3 {
 
     .front-page {
         padding-top: 3rem;
-        
+
         &__title {
             font-size: 2.5rem;
         }
-        
+
         &__image {
             margin: 3rem auto 0;
         }
@@ -444,11 +456,15 @@ h1, h2, h3 {
         &__title {
             font-size: 50px;
         }
+
+        &__link {
+            align-self: center;
+        }
     }
 
     .testimonials {
         padding: 4rem 1.5rem;
-        
+
         &__container {
             flex-direction: column;
             gap: 3.5rem;
